@@ -1,7 +1,29 @@
-<div style = "text-align: center;"><h1> All articles </h1>
+
+    <h1> All articles </h1> 
+    <h4> <%= link_to "New", new_article_path %> </h4>
+    <table>
+        <tr>
+            <th> ID </th>
+            <th> Name </th>
+            <th> Description</th>
+            <th> Action </th>
+            <th> Edit</th>
+            <th> Delete</th>
+            <td> Created at</td>
+            <td> Updated at</td>
+            </tr>
 <% @article.each do |article| %>
-    <p> <h3> <%=article.title %></h3>
-    <%= article.description %></p>
+    <tr>
+    <td><%=article.id %> </td>
+     <td><h3> <%=article.title %></h3> </td>
+     <td><%= article.description %> </td>
+     <td> <%= link_to "See", article_path(article)%> </td>
+     <td> <%= link_to "Edit", edit_article_path(article)%></td>
+     <td> <%= link_to "Delete", article_path(article), method: :delete, data: {confirm: "Are u sure?"} %> </td>
+     <td><%=article.created_at.strftime("%H:%M, %d/%m/%y") %> </td>
+     <td><%=article.updated_at.strftime("%H:%M, %d/%m/%y") %> </td>
     
-    <button><a href="https://firstowntry-protegemoi.c9users.io/articles/new">New post </a> </button>
-<% end %> </div>
+    
+<% end %> 
+
+</table>
