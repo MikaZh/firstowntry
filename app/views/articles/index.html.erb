@@ -1,0 +1,7 @@
+<div style = "text-align: center;"><h1> All articles </h1>
+<% @article.each do |article| %>
+    <p> <h3> <%=article.title %></h3>
+    <%= article.description %></p>
+    
+    <button><a href="https://firstowntry-protegemoi.c9users.io/articles/new">New post </a> </button>
+<% end %> </div>
