@@ -1,7 +1,7 @@
 
     <h1> All articles </h1> 
-    <h4> <%= link_to "New", new_article_path %> </h4>
-    <table>
+    
+    <table class="table">
         <tr>
             <th> ID </th>
             <th> Name </th>
@@ -15,15 +15,18 @@
 <% @article.each do |article| %>
     <tr>
     <td><%=article.id %> </td>
-     <td><h3> <%=article.title %></h3> </td>
+     <td> <%=article.title %> </td>
      <td><%= article.description %> </td>
      <td> <%= link_to "See", article_path(article)%> </td>
      <td> <%= link_to "Edit", edit_article_path(article)%></td>
      <td> <%= link_to "Delete", article_path(article), method: :delete, data: {confirm: "Are u sure?"} %> </td>
-     <td><%=article.created_at.strftime("%H:%M, %d/%m/%y") %> </td>
-     <td><%=article.updated_at.strftime("%H:%M, %d/%m/%y") %> </td>
+     <td> <%= article.created_at.strftime("%H:%M, %d/%m/%y") %> </td>
+     <td> <%= article.updated_at.strftime("%H:%M, %d/%m/%y") %> </td>
+     
+     <td>by <%= article.user.username%> </td>
     
     
 <% end %> 
+<a href="https://firstowntry-protegemoi.c9users.io/articles/new"> <button type="button" class="btn btn-success">New article</button> </a>
 
 </table>
